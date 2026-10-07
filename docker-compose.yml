@@ -1,0 +1,16 @@
+services:
+  pg:
+    image: postgres:16
+    container_name: nestar-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nestar
+      POSTGRES_PASSWORD: nestar123
+      POSTGRES_DB: nestar
+    ports:
+      - "5433:5432"
+    volumes:
+      - nestar_pg_data:/var/lib/postgresql/data
+
+volumes:
+  nestar_pg_data:

@@ -1,0 +1,16 @@
+[Unit]
+Description=Nestar API (NestJS)
+After=network.target mongod.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/nestar-nestjs
+Environment=NODE_ENV=production
+Environment=PORT=3002
+ExecStart=/usr/bin/node dist/main.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
