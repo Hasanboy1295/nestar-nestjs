@@ -9,7 +9,7 @@ export const TOKEN_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 export interface TokenPayload {
   sub: string;
   memberNick: string;
-  memberEmail: string;
+  memberEmail: string | null;
   memberType: string;
   memberFullName?: string;
 }

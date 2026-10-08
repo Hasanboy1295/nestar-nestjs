@@ -23,8 +23,8 @@ export class Member {
   @Column({ type: "varchar", length: 30, unique: true })
   memberNick: string;
 
-  @Column({ type: "varchar", length: 255, unique: true })
-  memberEmail: string;
+  @Column({ type: "varchar", length: 255, unique: true, nullable: true })
+  memberEmail: string | null;
 
   @Column({ type: "varchar", length: 255 })
   memberPassword: string;
@@ -54,7 +54,7 @@ export class Member {
 export interface SafeMember {
   id: string;
   memberNick: string;
-  memberEmail: string;
+  memberEmail: string | null;
   memberFullName: string;
   memberImage: string;
   memberDesc: string;
