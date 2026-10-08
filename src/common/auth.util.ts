@@ -60,10 +60,10 @@ export async function verifyToken(
 
 export const authCookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
+  secure: secureCookie,
   sameSite: "lax" as const,
   path: "/",
-  maxAge: TOKEN_MAX_AGE,
+  maxAge: TOKEN_MAX_AGE * 1000,
 };
 
 export function getToken(req: Request): string | null {
