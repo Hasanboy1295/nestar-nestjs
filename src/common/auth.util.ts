@@ -6,6 +6,11 @@ import bcrypt from "bcryptjs";
 export const AUTH_COOKIE = "nestar_token";
 export const TOKEN_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
+const secureCookie =
+  process.env.COOKIE_SECURE != null
+    ? process.env.COOKIE_SECURE !== "false"
+    : process.env.NODE_ENV === "production";
+
 export interface TokenPayload {
   sub: string;
   memberNick: string;
